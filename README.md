@@ -1,2 +1,2 @@
-# Money-Adventure
+# Money Adventure
 Earn lots of money
