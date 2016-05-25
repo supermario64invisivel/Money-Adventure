@@ -11,7 +11,7 @@ const juice = {
   quantity: 1,
   price: 4,
   initialPrice: 4,
-  priceProgress: 2,
+  priceProgress: 1.05,
   initialPriceProgress: 2,
   manager: false,
   managerName: 'Juice Manager',

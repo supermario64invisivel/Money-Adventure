@@ -26,15 +26,15 @@ const actions = {
     store.dispatch('PAY_MONEY', item.price)
     item.quantity += 1
     if (item.quantity % 10 === 0) {
-      item.price *= 2
-      item.priceProgress *= 2
+      item.price *= 1
+      item.priceProgress *= 1
     } else {
-      item.price += item.priceProgress
+      item.price *= item.priceProgress
     }
     if (item.quantity % 25 === 0) {
-      item.value *= 2
+      item.value *= 1
       item.produceTime /= 2
-      item.price *= 0.9
+      item.price *= 1
     }
   },
 

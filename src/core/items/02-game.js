@@ -11,15 +11,15 @@ const game = {
   quantity: 0,
   price: 60,
   initialPrice: 60,
-  priceProgress: 20,
-  initialPriceProgress: 20,
+  priceProgress: 1.1,
+  initialPriceProgress: 1.1,
   manager: false,
   managerName: 'Game Manager',
   managerPrice: [0, 1],
 
   upgrade: {
     type: 'game01',
-    price: [0, 900]
+    price: [0, 500]
   }
 }
 
