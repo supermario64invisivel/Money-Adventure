@@ -1,4 +1,4 @@
-const unit = [
+const units = [
   ' ',
   'Thousand',
   'Million',
@@ -23,13 +23,19 @@ const unit = [
   'Vigintillion'
 ]
 
-function three (value) {
-  return (value + 1000).toString().substr(-3)
-}
+export default function (str) {
+  const len = str.length
+  const size = Math.ceil(len / 3)
+  const lenUnit = (len % 3) || 3
+  const unit = str.substr(0, lenUnit)
 
-export default function (value) {
-  const size = value.length - 1
-  if (size === 0) { return value[0] }
-  if (size === 1) { return value[1] + '.' + three(value[0]) }
-  return value[size] + '.' + three(value[size - 1]) + ' ' + (unit[size] ? unit[size] : 'e' + (3 * size))
+  if (size < 2) return unit
+
+  var fraction = str.substr(lenUnit, 3)
+
+  if (size === 2) return unit + '.' + fraction
+
+  fraction = (fraction === '000') ? '' : '.' + fraction
+
+  return unit + fraction + ' ' + (units[size - 1] ? units[size - 1] : 'e' + (3 * (size - 1)))
 }

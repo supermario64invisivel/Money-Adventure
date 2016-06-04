@@ -2,13 +2,13 @@
   div.item-progress
     div.item-time
       span.value
-        | &nbsp; ${{ item.value }}
+        | &nbsp; ${{ item.value | amount }}
       span.progress(v-bind:style="{ width: item.progress + '%' }")
     div.item-buy
       div.item-quantity
         | {{ item.quantity }}
       button(v-on:click="buy(item)")
-        | Buy +1 per ${{ item.price }}
+        | Buy +1 per ${{ item.price | amount }}
 </template>
 
 <style>

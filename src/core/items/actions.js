@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import Calc from 'core/Calc'
 
 const actions = {
 
@@ -22,26 +23,20 @@ const actions = {
   },
 
   buyItem: function (store, item) {
-    if (store.state.money[0] < item.price) { return }
+    console.log('hey')
+    if (Calc.lesser(store.state.money, item.price)) { return }
     store.dispatch('PAY_MONEY', item.price)
     item.quantity += 1
-    if (item.quantity % 10 === 0) {
-      item.price *= 1
-      item.priceProgress *= 1
-    } else {
-      item.price *= item.priceProgress
-    }
+    item.price = Calc.divide(Calc.multiply(item.price, item.priceProgress), 1000)
     if (item.quantity % 25 === 0) {
-      item.value *= 1
       item.produceTime /= 2
-      item.price *= 1
     }
   },
 
   upgradeItem: function (store, item) {
-    if (store.state.money[0] < 100000) { return }
+    if (Calc.lesser(store.state.money, 100000)) { return }
     store.dispatch('PAY_MONEY', 100000)
-    item.value *= 2
+    item.value = Calc.multiply(item.value, 2)
     /* item.upgrade.effect(item)
     effect: (item) => {
       item.value *= 2
@@ -49,6 +44,8 @@ const actions = {
   },
 
   hireManager: function (store, item) {
+    if (Calc.lesser(store.state.money, item.managerPrice)) { return }
+    store.dispatch('PAY_MONEY', item.managerPrice)
     store.dispatch('HIRE_MANAGER', item)
   }
 

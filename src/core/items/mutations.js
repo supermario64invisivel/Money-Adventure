@@ -1,3 +1,5 @@
+import Calc from 'core/Calc'
+
 const mutations = {
   PRODUCE_ITEM (state, item, now) {
     item.producing = now
@@ -10,7 +12,7 @@ const mutations = {
       item.producing = false
       item.producingTime = 0
       item.progress = 0
-      state.money.$set(0, state.money[0] + (item.value * item.quantity))
+      state.money = Calc.add(state.money, Calc.multiply(item.value, item.quantity))
       if (item.manager) {
         item.producing = now
       }

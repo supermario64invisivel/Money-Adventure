@@ -29,7 +29,7 @@
   import actions from 'core/items/actions'
 
   export default {
-    name: 'Money',
+    name: 'Managers',
     vuex: {
       getters: {
         items: state => state.items
