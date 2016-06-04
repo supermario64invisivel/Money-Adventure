@@ -11,7 +11,6 @@
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
-    height: 300px;
   }
   div.item {
     display: flex;

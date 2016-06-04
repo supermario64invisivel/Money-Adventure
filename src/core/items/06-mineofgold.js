@@ -1,4 +1,4 @@
-const game = {
+const mineofgold = {
   name: 'Mine Of Gold',
   image: 'http://en.grandfantasia.info/assets/UI/itemicon/I00099.gif',
   produceTime: 300000,
@@ -23,4 +23,4 @@ const game = {
   }
 }
 
-export default game
+export default mineofgold

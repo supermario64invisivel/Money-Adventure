@@ -1,6 +1,8 @@
 <template lang="jade">
   div.item-progress
     div.item-time
+      span.value
+        | &nbsp; ${{ item.value }}
       span.progress(v-bind:style="{ width: item.progress + '%' }")
     div.item-buy
       div.item-quantity
@@ -38,6 +40,18 @@
   div.item-buy button {
     font-size: 8pt;
     color: blue;
+  }
+
+  span.value {
+    font-size: 11pt;
+    font-family: sans-serif;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 39px;
+    vertical-align: middle;
+    overflow: hidden;
+    position: absolute;
   }
 
   span.progress {
