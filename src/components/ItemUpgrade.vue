@@ -1,9 +1,9 @@
 <template lang="jade">
-  div.item-upgrade
+  div.item-upgrade(v-if="item.upgrades[item.nextUpgrade]")
     button(v-on:click="upgrade(item)")
-      | Upgrade
+      | Upgrade X {{ item.upgrades[item.nextUpgrade].amount }}
       br
-      | $ {{ item.upgrade.price | amount }}
+      | $ {{ item.upgrades[item.nextUpgrade].price | amount }}
 </template>
 
 <style>

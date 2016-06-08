@@ -44,7 +44,9 @@
     methods: {
       getManager: function (item) {
         this.hireManager(item)
-        this.selected = -1
+        if (item.manager) {
+          this.selected = -1
+        }
       }
     }
   }

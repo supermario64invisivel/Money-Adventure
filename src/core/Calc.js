@@ -26,4 +26,8 @@ export default class Calc {
     return bigInt(a).lesser(b)
   }
 
+  static profit (item) {
+    return Calc.multiply(item.value, item.quantity)
+  }
+
 }

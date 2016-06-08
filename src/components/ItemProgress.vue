@@ -2,7 +2,7 @@
   div.item-progress
     div.item-time
       span.value
-        | &nbsp; ${{ item.value | amount }}
+        | &nbsp; ${{ item | profit | amount }}
       span.progress(v-bind:style="{ width: item.progress + '%' }")
     div.item-buy
       div.item-quantity
@@ -46,8 +46,6 @@
     font-size: 11pt;
     font-family: sans-serif;
     display: block;
-    width: 100%;
-    height: 100%;
     line-height: 39px;
     vertical-align: middle;
     overflow: hidden;
