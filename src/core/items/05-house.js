@@ -23,6 +23,9 @@ const game = {
   ],
 
   achievements: {
+    25: { type: 'speed', amount: 2 },
+    50: { type: 'speed', amount: 2 },
+    100: { type: 'speed', amount: 2 }
   }
 }
 

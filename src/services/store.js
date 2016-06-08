@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 const state = {
   current: (new Date()).valueOf(),
-  money: '100000000',
+  money: '0',
   items
 }
 
