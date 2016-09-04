@@ -24,10 +24,13 @@ const actions = {
 
   buyItem (store, item) {
     if (Calc.lesser(store.state.money, item.qtyPrice)) { return }
+    const init = item.quantity + 1
     store.dispatch('PAY_MONEY', item.qtyPrice)
     store.dispatch('GET_ITEM', item, store.state.qty)
-    if (item.achievements[item.quantity]) {
-      store.dispatch('ACHIEVEMENT', item, item.quantity)
+    for (var qty = init; qty <= item.quantity; qty++) {
+      if (item.achievements[qty]) {
+        store.dispatch('ACHIEVEMENT', item, qty)
+      }
     }
   },
 
