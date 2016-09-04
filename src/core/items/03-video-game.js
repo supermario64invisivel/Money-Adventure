@@ -11,6 +11,7 @@ const videogame = {
   quantity: 0,
   price: '1000000',
   initialPrice: '1000000',
+  qtyPrice: '1000000',
   priceProgress: 1090,
   initialPriceProgress: 1090,
   manager: false,
@@ -19,11 +20,15 @@ const videogame = {
 
   nextUpgrade: 0,
   upgrades: [
-    { price: '2500000000', amount: 2 }
+    { price: '2500000000', amount: 2 },
+    { price: '25000000000000000', amount: 5 },
+    { price: '25000000000000000000000', amount: 3 },
+    { price: '500000000000000000000000000000', amount: 10 },
+    { price: '2500000000000000000000000000000', amount: 2 },
+    { price: '100000000000000000000000000000000000000', amount: 7.77 }
   ],
 
   achievements: {
-    10: { amount: 10 },
     25: { type: 'speed', amount: 2.5 },
     50: { type: 'speed', amount: 2.5 },
     75: { type: 'speed', amount: 2.5 },

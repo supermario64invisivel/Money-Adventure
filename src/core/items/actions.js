@@ -23,10 +23,9 @@ const actions = {
   },
 
   buyItem (store, item) {
-    if (Calc.lesser(store.state.money, item.price)) { return }
-    store.dispatch('PAY_MONEY', item.price)
-    item.quantity += 1
-    item.price = Calc.divide(Calc.multiply(item.price, item.priceProgress), 1000)
+    if (Calc.lesser(store.state.money, item.qtyPrice)) { return }
+    store.dispatch('PAY_MONEY', item.qtyPrice)
+    store.dispatch('GET_ITEM', item, store.state.qty)
     if (item.achievements[item.quantity]) {
       store.dispatch('ACHIEVEMENT', item, item.quantity)
     }
@@ -43,6 +42,13 @@ const actions = {
     if (Calc.lesser(store.state.money, item.managerPrice)) { return }
     store.dispatch('PAY_MONEY', item.managerPrice)
     store.dispatch('HIRE_MANAGER', item)
+  },
+
+  cycleQuantity (store) {
+    const qtys = store.state.qtys
+    var index = qtys.indexOf(store.state.qty) + 1
+    if (index >= qtys.length) { index = 0 }
+    store.dispatch('SET_QUANTITY', qtys[index])
   }
 }
 

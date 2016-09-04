@@ -11,6 +11,7 @@ const juice = {
   quantity: 1,
   price: '4000',
   initialPrice: '4000',
+  qtyPrice: '4000',
   priceProgress: 1050,
   initialPriceProgress: 1050,
   manager: false,
@@ -20,7 +21,11 @@ const juice = {
   nextUpgrade: 0,
   upgrades: [
     { price: '100000000', amount: 2 },
-    { price: '1000000000000000', amount: 5 }
+    { price: '1000000000000000', amount: 5 },
+    { price: '1000000000000000000000', amount: 3 },
+    { price: '500000000000000000000000000000', amount: 10 },
+    { price: '500000000000000000000000000000000', amount: 2 },
+    { price: '100000000000000000000000000000000000000', amount: 7.77 }
   ],
 
   achievements: {

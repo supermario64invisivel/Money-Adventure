@@ -8,7 +8,7 @@
       div.item-quantity
         | {{ item.quantity }}
       button(v-on:click="buy(item)")
-        | Buy +1 per ${{ item.price | amount }}
+        | Buy +{{ qty }} per ${{ item.qtyPrice | amount }}
 </template>
 
 <style>
@@ -74,6 +74,9 @@
     name: 'ItemProgress',
     props: ['item'],
     vuex: {
+      getters: {
+        qty: state => state.qty
+      },
       actions: {
         buy: actions.buyItem
       }

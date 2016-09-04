@@ -18,7 +18,7 @@
     text-align: left;
     min-width: 270px;
     margin-top: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
   }
   div.managers button {
     margin-left: 1em;

@@ -1,7 +1,16 @@
+import _ from 'lodash'
 import Calc from 'core/Calc'
 import * as upgrades from './upgrades'
 
 const mutations = {
+  GET_ITEM (state, item, qty) {
+    item.quantity += qty
+    for (var i = qty; i > 0; i--) {
+      item.price = Calc.divide(Calc.multiply(item.price, item.priceProgress), 1000)
+    }
+    item.qtyPrice = Calc.getQtyPrice(item, state.qty)
+  },
+
   PRODUCE_ITEM (state, item, now) {
     item.producing = now
   },
@@ -36,6 +45,13 @@ const mutations = {
   UPGRADE (state, item, upgrade) {
     upgrades[upgrade.type || 'value'](item, upgrade)
     item.nextUpgrade++
+  },
+
+  SET_QUANTITY (state, qty) {
+    state.qty = qty
+    _.forEach(state.items, item => {
+      item.qtyPrice = Calc.getQtyPrice(item, state.qty)
+    })
   }
 }
 
