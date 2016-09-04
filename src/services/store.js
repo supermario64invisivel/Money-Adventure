@@ -10,6 +10,7 @@ Vue.use(Vuex)
 const state = {
   current: (new Date()).valueOf(),
   money: '0',
+  gems: 0,
   qty: 1,
   qtys: [1, 10, 100, 1000],
   items

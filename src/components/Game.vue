@@ -1,20 +1,23 @@
 <template lang="jade">
   managers
   quantity
-  money
+  div
+    gems
+    money
   items
 </template>
 
 <script>
   import Managers from 'src/components/Managers'
   import Quantity from 'src/components/Quantity'
+  import Gems from 'src/components/Gems'
   import Money from 'src/components/Money'
   import Items from 'src/components/Items'
   import store from 'src/services/store'
 
   export default {
     name: 'Game',
-    components: { Managers, Money, Items, Quantity },
+    components: { Managers, Gems, Money, Items, Quantity },
     store
   }
 </script>

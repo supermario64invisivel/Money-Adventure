@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import Game from './Game'
 import filters from './filters'
+import Game from './components/Game'
 
 filters.start(Vue)
 

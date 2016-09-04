@@ -5,11 +5,12 @@
 
 <style>
   div.money {
+    display: inline-block;
     color: gray;
     font-family: sans-serif;
     font-size: 21pt;
     text-align: left;
-    min-width: 270px;
+    min-width: 335px;
     margin-bottom: 0.6em;
   }
 </style>
