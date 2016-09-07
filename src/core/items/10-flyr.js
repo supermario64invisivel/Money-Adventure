@@ -20,7 +20,7 @@ const flyr = {
 
   nextUpgrade: 0,
   upgrades: [
-    { price: '200000000000000', amount: 2 },
+    { price: '20000000000000000', amount: 2 },
     { price: '200000000000000000000000', amount: 5 },
     { price: '200000000000000000000000000000', amount: 3 },
     { price: '500000000000000000000000000000', amount: 10 },
