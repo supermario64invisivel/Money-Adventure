@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import Calc from 'core/Calc'
+import { achieveAll, achievedAll } from './upgrades'
 
 const actions = {
 
@@ -30,6 +31,9 @@ const actions = {
     for (var qty = init; qty <= item.quantity; qty++) {
       if (item.achievements[qty]) {
         store.dispatch('ACHIEVEMENT', item, qty)
+      }
+      if (achieveAll[qty] && achievedAll(qty, store.state.items)) {
+        store.dispatch('ACHIEVEMENT', 'all', qty)
       }
     }
   },

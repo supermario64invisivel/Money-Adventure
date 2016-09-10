@@ -35,11 +35,25 @@ const mutations = {
   },
 
   ACHIEVEMENT (state, item, quantity) {
-    const achievement = item.achievements[quantity]
-    if (achievement.index) {
-      item = state.items[achievement.index]
+    const achievement = item === 'all' ? upgrades.achieveAll[quantity] : item.achievements[quantity]
+    const up = upgrades[achievement.type || 'value']
+    var index = achievement.index
+    if (!index && (item === 'all')) {
+      index = 'all'
     }
-    upgrades[achievement.type || 'value'](item, achievement)
+    if (index === 'all') {
+      // all items
+      state.items.forEach(it => up(it, achievement))
+    } else if (typeof index === 'object') {
+      // array of items
+      index.forEach(i => up(state.items[i], achievement))
+    } else if (typeof index === 'number') {
+      // single item
+      up(state.items[index], achievement)
+    } else {
+      // own item
+      up(item, achievement)
+    }
   },
 
   UPGRADE (state, item, upgrade) {
