@@ -25,7 +25,7 @@
   import actions from 'core/items/actions'
 
   export default {
-    name: 'ItemProgress',
+    name: 'ItemUpgrade',
     props: ['item'],
     vuex: {
       actions: {

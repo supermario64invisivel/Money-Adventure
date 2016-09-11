@@ -34,8 +34,7 @@ const mutations = {
     item.manager = true
   },
 
-  ACHIEVEMENT (state, item, quantity) {
-    const achievement = item === 'all' ? upgrades.achieveAll[quantity] : item.achievements[quantity]
+  ACHIEVEMENT (state, item, quantity, achievement) {
     const up = upgrades[achievement.type || 'value']
     var index = achievement.index
     if (!index && (item === 'all')) {
@@ -57,8 +56,14 @@ const mutations = {
   },
 
   UPGRADE (state, item, upgrade) {
-    upgrades[upgrade.type || 'value'](item, upgrade)
-    item.nextUpgrade++
+    const up = upgrades[upgrade.type || 'value']
+    if (item === 'all') {
+      state.items.forEach(it => up(it, upgrade))
+      state.nextUpgrade++
+    } else {
+      up(item, upgrade)
+      item.nextUpgrade++
+    }
   },
 
   SET_QUANTITY (state, qty) {

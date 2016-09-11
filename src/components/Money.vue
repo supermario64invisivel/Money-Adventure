@@ -10,7 +10,7 @@
     font-family: sans-serif;
     font-size: 21pt;
     text-align: left;
-    min-width: 335px;
+    min-width: 230px;
     margin-bottom: 0.6em;
   }
 </style>

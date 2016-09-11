@@ -14,7 +14,6 @@ export const upgradeAll = [
   { price: '5000000000000000000000000', amount: 3 },
   { price: '5000000000000000000000000000000', amount: 4 },
   { price: '50000000000000000000000000000000000000', amount: 5 }
-
 ]
 
 export const achieveAll = {

@@ -12,7 +12,7 @@
     font-family: sans-serif;
     font-size: 21pt;
     text-align: left;
-    min-width: 335px;
+    min-width: 242px;
     margin-bottom: 0.6em;
     line-height: 45px;
   }

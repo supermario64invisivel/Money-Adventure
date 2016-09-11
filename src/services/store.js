@@ -13,7 +13,8 @@ const state = {
   gems: 0,
   qty: 1,
   qtys: [1, 10, 100, 1000],
-  items
+  items,
+  nextUpgrade: 0
 }
 
 let mutations = {

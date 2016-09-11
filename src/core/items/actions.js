@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import Calc from 'core/Calc'
-import { achieveAll, achievedAll } from './upgrades'
+import { upgradeAll, achieveAll, achievedAll } from './upgrades'
 
 const actions = {
 
@@ -30,10 +30,10 @@ const actions = {
     store.dispatch('GET_ITEM', item, store.state.qty)
     for (var qty = init; qty <= item.quantity; qty++) {
       if (item.achievements[qty]) {
-        store.dispatch('ACHIEVEMENT', item, qty)
+        store.dispatch('ACHIEVEMENT', item, qty, item.achievements[qty])
       }
       if (achieveAll[qty] && achievedAll(qty, store.state.items)) {
-        store.dispatch('ACHIEVEMENT', 'all', qty)
+        store.dispatch('ACHIEVEMENT', 'all', qty, achieveAll[qty])
       }
     }
   },
@@ -43,6 +43,13 @@ const actions = {
     if (Calc.lesser(store.state.money, upgrade.price)) { return }
     store.dispatch('PAY_MONEY', upgrade.price)
     store.dispatch('UPGRADE', item, upgrade)
+  },
+
+  upgradeAll (store) {
+    const upgrade = upgradeAll[store.state.nextUpgrade]
+    if (Calc.lesser(store.state.money, upgrade.price)) { return }
+    store.dispatch('PAY_MONEY', upgrade.price)
+    store.dispatch('UPGRADE', 'all', upgrade)
   },
 
   hireManager (store, item) {

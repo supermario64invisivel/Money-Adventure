@@ -3,12 +3,14 @@
   quantity
   div
     gems
+    upgrade
     money
   items
 </template>
 
 <script>
   import Managers from 'src/components/Managers'
+  import Upgrade from 'src/components/Upgrade'
   import Quantity from 'src/components/Quantity'
   import Gems from 'src/components/Gems'
   import Money from 'src/components/Money'
@@ -17,7 +19,7 @@
 
   export default {
     name: 'Game',
-    components: { Managers, Gems, Money, Items, Quantity },
+    components: { Managers, Upgrade, Gems, Money, Items, Quantity },
     store
   }
 </script>
