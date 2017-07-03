@@ -1,6 +1,6 @@
-<template lang="jade">
+<template lang="pug">
   div.item-upgrade(v-if="item.upgrades[item.nextUpgrade]")
-    button(v-on:click="upgrade(item)")
+    button(v-on:click="upgradeItem(item)")
       | Upgrade X {{ item.upgrades[item.nextUpgrade].amount }}
       br
       | $ {{ item.upgrades[item.nextUpgrade].price | amount }}
@@ -22,15 +22,11 @@
 </style>
 
 <script>
-  import actions from 'core/items/actions'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'ItemUpgrade',
     props: ['item'],
-    vuex: {
-      actions: {
-        upgrade: actions.upgradeItem
-      }
-    }
+    methods: mapActions(['upgradeItem'])
   }
 </script>

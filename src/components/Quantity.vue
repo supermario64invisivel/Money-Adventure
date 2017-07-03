@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   div.quantity
     button(v-on:click="cycleQuantity")
       | Buy x {{ qty }}
@@ -23,18 +23,14 @@
 </style>
 
 <script>
-  import actions from 'core/items/actions'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     name: 'Quantity',
-    vuex: {
-      getters: {
-        items: state => state.items,
-        qty: state => state.qty
-      },
-      actions: {
-        cycleQuantity: actions.cycleQuantity
-      }
-    }
+    computed: mapState({
+      items: state => state.items,
+      qty: state => state.qty
+    }),
+    methods: mapActions(['cycleQuantity'])
   }
 </script>

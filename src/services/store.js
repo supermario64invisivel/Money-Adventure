@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import items from 'core/items'
 import itemMutations from 'core/items/mutations'
+import actions from 'core/items/actions'
 import Calc from 'core/Calc'
 
 Vue.use(Vuex)
@@ -30,5 +31,6 @@ _.merge(mutations, itemMutations)
 
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  actions
 })

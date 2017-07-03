@@ -1,10 +1,10 @@
-<template lang="jade">
+<template lang="pug">
   div.managers
     select(v-model="selected")
       option(value="-1")
         | Select Manager
-      template(v-for="item in items")
-        option(v-if="! item.manager", value="{{ $index }}")
+      template(v-for="(item, index) in items")
+        option(v-if="! item.manager", :value="index")
           | {{ item.managerName }} - $ {{ item.managerPrice | amount }}
     button(v-if="selected > -1", v-on:click="getManager(items[selected])")
       | Hire!
@@ -26,22 +26,18 @@
 </style>
 
 <script>
-  import actions from 'core/items/actions'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     name: 'Managers',
-    vuex: {
-      getters: {
-        items: state => state.items
-      },
-      actions: {
-        hireManager: actions.hireManager
-      }
-    },
+    computed: mapState({
+      items: state => state.items
+    }),
     data: () => ({
       selected: -1
     }),
     methods: {
+      ...mapActions(['hireManager']),
       getManager: function (item) {
         this.hireManager(item)
         if (item.manager) {

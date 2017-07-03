@@ -1,8 +1,8 @@
-<template lang="jade">
+<template lang="pug">
   div.item-description
     div.item-name
       | {{ item.name }}
-    div.item-image(v-on:click="produce(item)")
+    div.item-image(v-on:click="produceItem(item)")
       img(v-bind:src="item.image")
 </template>
 
@@ -29,15 +29,11 @@
 </style>
 
 <script>
-  import actions from 'core/items/actions'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'ItemDescription',
     props: ['item'],
-    vuex: {
-      actions: {
-        produce: actions.produceItem
-      }
-    }
+    methods: mapActions(['produceItem'])
   }
 </script>

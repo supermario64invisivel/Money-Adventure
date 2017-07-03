@@ -44,6 +44,7 @@ const game = {
     325: { type: 'value', amount: 4, index: 8 },
     350: { type: 'value', amount: 3, index: 9 },
     375: { type: 'value', amount: 2, index: 'all' },
+    380: { type: 'value', amount: 777777 },
     400: { type: 'value', amount: 40, index: 0 },
     425: { type: 'value', amount: 35, index: 2 },
     450: { type: 'value', amount: 28, index: 3 },

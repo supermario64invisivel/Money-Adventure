@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   div.money
     | $ {{ money | amount }}
 </template>
@@ -16,12 +16,12 @@
 </style>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'Money',
-    vuex: {
-      getters: {
-        money: state => state.money
-      }
-    }
+    computed: mapState({
+      money: state => state.money
+    })
   }
 </script>

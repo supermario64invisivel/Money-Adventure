@@ -1,7 +1,6 @@
 import bigInt from 'big-integer'
 
 export default class Calc {
-
   constructor (value) {
     this.value = value
   }
@@ -39,5 +38,4 @@ export default class Calc {
     }
     return qtyPrice
   }
-
 }

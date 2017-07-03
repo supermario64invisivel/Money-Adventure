@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   div.item-progress
     div.item-time
       span.value
@@ -7,7 +7,7 @@
     div.item-buy
       div.item-quantity
         | {{ item.quantity }}
-      button(v-on:click="buy(item)")
+      button(v-on:click="buyItem(item)")
         | Buy +{{ qty }} per ${{ item.qtyPrice | amount }}
 </template>
 
@@ -68,18 +68,14 @@
 </style>
 
 <script>
-  import actions from 'core/items/actions'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     name: 'ItemProgress',
     props: ['item'],
-    vuex: {
-      getters: {
-        qty: state => state.qty
-      },
-      actions: {
-        buy: actions.buyItem
-      }
-    }
+    computed: mapState({
+      qty: state => state.qty
+    }),
+    methods: mapActions(['buyItem'])
   }
 </script>

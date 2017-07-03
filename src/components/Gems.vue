@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   div.gems
     img(src="http://pix.iemoji.com/images/emoji/apple/ios-9/256/gem-stone.png")
     span
@@ -28,12 +28,12 @@
 </style>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'Gems',
-    vuex: {
-      getters: {
-        gems: state => state.gems
-      }
-    }
+    computed: mapState({
+      gems: state => state.gems
+    })
   }
 </script>

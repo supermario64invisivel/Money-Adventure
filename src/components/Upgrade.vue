@@ -1,6 +1,6 @@
-<template lang="jade">
+<template lang="pug">
   div.upgrade-all(v-if="upgrades[nextUpgrade]")
-    button(v-on:click="upgrade()")
+    button(v-on:click="upgradeAll()")
       | Upgrade X {{ upgrades[nextUpgrade].amount }}
       br
       | $ {{ upgrades[nextUpgrade].price | amount }}
@@ -22,7 +22,7 @@
 </style>
 
 <script>
-  import actions from 'core/items/actions'
+  import { mapState, mapActions } from 'vuex'
   import { upgradeAll } from 'core/items/upgrades'
 
   export default {
@@ -30,13 +30,9 @@
     data: () => ({
       upgrades: upgradeAll
     }),
-    vuex: {
-      getters: {
-        nextUpgrade: state => state.nextUpgrade
-      },
-      actions: {
-        upgrade: actions.upgradeAll
-      }
-    }
+    computed: mapState({
+      nextUpgrade: state => state.nextUpgrade
+    }),
+    methods: mapActions(['upgradeAll'])
   }
 </script>

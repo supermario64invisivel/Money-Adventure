@@ -1,15 +1,18 @@
-<template lang="jade">
-  managers
-  quantity
+<template lang="pug">
   div
-    gems
-    upgrade
-    money
-  items
+    reset
+    managers
+    quantity
+    div
+      gems
+      upgrade
+      money
+    items
 </template>
 
 <script>
   import Managers from 'src/components/Managers'
+  import Reset from 'src/components/Reset'
   import Upgrade from 'src/components/Upgrade'
   import Quantity from 'src/components/Quantity'
   import Gems from 'src/components/Gems'
@@ -19,7 +22,7 @@
 
   export default {
     name: 'Game',
-    components: { Managers, Upgrade, Gems, Money, Items, Quantity },
+    components: { Managers, Reset, Upgrade, Gems, Money, Items, Quantity },
     store
   }
 </script>

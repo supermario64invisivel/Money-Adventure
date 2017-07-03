@@ -3,7 +3,7 @@ import Calc from 'core/Calc'
 import * as upgrades from './upgrades'
 
 const mutations = {
-  GET_ITEM (state, item, qty) {
+  GET_ITEM (state, { item, qty }) {
     item.quantity += qty
     for (var i = qty; i > 0; i--) {
       item.price = Calc.divide(Calc.multiply(item.price, item.priceProgress), 1000)
@@ -11,11 +11,11 @@ const mutations = {
     item.qtyPrice = Calc.getQtyPrice(item, state.qty)
   },
 
-  PRODUCE_ITEM (state, item, now) {
+  PRODUCE_ITEM (state, { item, now }) {
     item.producing = now
   },
 
-  UPDATE_ITEM (state, item, now) {
+  UPDATE_ITEM (state, { item, now }) {
     state.current = now
     item.producingTime = now - item.producing
     item.progress = (item.producingTime * 100) / item.produceTime
@@ -34,7 +34,7 @@ const mutations = {
     item.manager = true
   },
 
-  ACHIEVEMENT (state, item, quantity, achievement) {
+  ACHIEVEMENT (state, { item, quantity, achievement }) {
     const up = upgrades[achievement.type || 'value']
     var index = achievement.index
     if (!index && (item === 'all')) {
@@ -55,7 +55,7 @@ const mutations = {
     }
   },
 
-  UPGRADE (state, item, upgrade) {
+  UPGRADE (state, { item, upgrade }) {
     const up = upgrades[upgrade.type || 'value']
     if (item === 'all') {
       state.items.forEach(it => up(it, upgrade))

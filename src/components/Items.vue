@@ -1,7 +1,6 @@
-<template lang="jade">
+<template lang="pug">
   div.items
-    div.item(v-for="item in items")
-      item(:item="item")
+    item(v-for="item in items" :item="item")
 </template>
 
 <style>
@@ -13,24 +12,19 @@
     align-content: center;
     height: 513px;
   }
-  div.item {
-    display: flex;
-    margin: 11px 5px;
-  }
 </style>
 
 <script>
+  import { mapState } from 'vuex'
   import Item from 'src/components/Item'
   import processItems from 'core/items/process'
 
   export default {
     name: 'Items',
     components: { Item },
-    vuex: {
-      getters: {
-        items: state => state.items
-      }
-    },
-    ready: processItems
+    computed: mapState({
+      items: state => state.items
+    }),
+    mounted: processItems
   }
 </script>
